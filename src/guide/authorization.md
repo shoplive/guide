@@ -28,3 +28,5 @@ JWT payload는 다음과 같습니다.
 <AuthorizationGenerator />
 
 ### 인증 토큰 검증기
+
+<AuthorizationValidator />
