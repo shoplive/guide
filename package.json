@@ -19,6 +19,7 @@
     "vuepress": "^1.7.1"
   },
   "dependencies": {
+    "jose": "3",
     "vue-click-outside": "^1.1.0"
   }
 }
