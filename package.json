@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "jose": "3",
-    "vue-click-outside": "^1.1.0"
+    "js-base64": "^3.6.0",
+    "vue-click-outside": "^1.1.0",
+    "webcrypto-jwt": "^0.2.2"
   }
 }

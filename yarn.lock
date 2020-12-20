@@ -4518,6 +4518,11 @@ jose@3:
   resolved "https://registry.yarnpkg.com/jose/-/jose-3.5.0.tgz#0a9b1cbedb53ec024d4fcbae779e719e7cf88916"
   integrity sha512-pW9z+ny33gxX2wXLQl3SkPQWGaUvOMYLijuiMHIHUYIDsrZjdMqYYS5UTkusuMzZkqe5T8YImA4FOqqB1IWmRg==
 
+js-base64@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-3.6.0.tgz#773e1de628f4f298d65a7e9842c50244751f5756"
+  integrity sha512-wVdUBYQeY2gY73RIlPrysvpYx+2vheGo8Y1SNQv/BzHToWpAZzJU7Z6uheKMAe+GLSBig5/Ps2nxg/8tRB73xg==
+
 js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -7676,6 +7681,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+webcrypto-jwt@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/webcrypto-jwt/-/webcrypto-jwt-0.2.2.tgz#dc21c4e8a78c3e11fe9210d0cd1ce4f8c1151a13"
+  integrity sha512-ykmbh97Pf68pI9P/K12pRGPVovY+r0WC+DwdWS93omRYwlaCTSIs20tV7EDny1aHTNaZGFByE4t0fVI7V4OffA==
 
 webpack-chain@^4.9.0:
   version "4.12.1"

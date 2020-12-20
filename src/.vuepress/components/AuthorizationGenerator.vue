@@ -63,7 +63,8 @@
 </template>
 
 <script>
-const { default: SignJWT } = require('jose/jwt/sign')
+import SignJWT from 'jose/dist/browser/jwt/sign';
+import { toUint8Array } from 'js-base64';
 
 export default {
   name: 'autorizationGenerator',
@@ -80,22 +81,19 @@ export default {
     }
   },
   methods: {
-    checkForm: function (e) {
+    async checkForm(e) {
       console.log('submit');
       e.preventDefault();
 
       var payload = { accessKey: this.accessKey, userId: this.userId, name: this.name };
-      const buffer = Buffer.from(JSON.stringify(payload));
-      console.log(buffer);
-      console.log(SignJWT);
-      // const jwt = await new SignJWT(payload)
-      //   .setProtectedHeader({ alg: 'HS256' })
-      //   .setIssuedAt()
-      //   .setExpirationTime(this.expiration)
-      //   .sign(privateKey)
+      const jwt = await new SignJWT(payload)
+        .setProtectedHeader({ alg: 'HS256' })
+        .setIssuedAt()
+        .setExpirationTime(this.expiration)
+        .sign(toUint8Array(this.secretKey));
 
-      // console.log(jsonwebtoken.sign(payload, this.secretKey));
-      this.token = "123";
+
+      this.token = jwt;
     }
   }
 }
