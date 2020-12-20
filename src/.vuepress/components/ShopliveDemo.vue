@@ -116,6 +116,6 @@ export default {
   .shoplive-player
     margin-top 20px
     border 1px dashed #999
-    width 400px
+    width 480px
     max-width 100%
 </style>
