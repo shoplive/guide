@@ -1,4 +1,16 @@
 module.exports = {
+  locales: {
+    "/": {
+      lang: "ko-KR",
+      title: "Shoplive Guide",
+      description: "Shoplive 연동 가이드",
+    },
+    "/en": {
+      lang: "en-US",
+      title: "Shoplive Guide",
+      description: "Shoplive Guide",
+    },
+  },
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
@@ -76,24 +88,62 @@ module.exports = {
     docsDir: "",
     editLinkText: "",
     lastUpdated: false,
-    nav: [
-      {
-        text: "Guide",
-        link: "/guide/",
-      },
-      {
-        text: "Config",
-        link: "/config/",
-      },
-    ],
-    sidebar: {
-      "/guide/": [
-        {
-          title: "Guide",
-          collapsable: false,
-          children: ["", "using-vue"],
+    locales: {
+      "/": {
+        label: "한글",
+        selectText: "Languages",
+        ariaLabel: "Select language",
+        editLinkText: "Edit this page on GitHub",
+        lastUpdated: "Last Updated",
+        nav: [
+          {
+            text: "개발가이드",
+            link: "/guide/",
+          },
+          {
+            text: "데모",
+            link: "/demo/",
+          },
+        ],
+        sidebar: {
+          "/guide/": [
+            {
+              title: "개발가이드",
+              collapsable: false,
+              children: ["", "script", "authorization", "jwt"],
+            },
+          ],
         },
-      ],
+      },
+      "/en/": {
+        label: "English",
+        selectText: "Languages",
+        ariaLabel: "Select language",
+        editLinkText: "Edit this page on GitHub",
+        lastUpdated: "Last Updated",
+        nav: [
+          {
+            text: "Guide",
+            link: "/guide/",
+          },
+          {
+            text: "Demo",
+            link: "/demo/",
+          },
+        ],
+        sidebar: {
+          "/guide/": [
+            {
+              title: "Guide",
+              collapsable: false,
+              children: ["", "script", "authorization", "jwt"],
+            },
+          ],
+        },
+      },
+    },
+    yuu: {
+      disableThemeIgnore: true,
     },
   },
 

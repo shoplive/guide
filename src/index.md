@@ -1,7 +1,8 @@
 ---
 home: true
 heroImage: /imgs/hero.png
-tagline: Developer Guides
+heroText: Developer Guides
+tagline:
 actionText: Quick Start →
 actionLink: /guide/
 # features:

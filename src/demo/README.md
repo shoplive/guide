@@ -2,14 +2,9 @@
 sidebar: auto
 ---
 
-# Config
+# 데모
 
 ## foo
-
-- Type: `string`
-- Default: `/`
-
-## bar
 
 - Type: `string`
 - Default: `/`
