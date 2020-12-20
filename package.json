@@ -1,0 +1,24 @@
+{
+  "name": "shoplive-guide",
+  "version": "0.0.1",
+  "description": "Shoplive Guide",
+  "main": "index.js",
+  "authors": {
+    "name": "shoplive",
+    "email": "sales@shoplive.cloud"
+  },
+  "repository": "shoplive/guide/Shoplive Guide",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-medium-zoom": "^1.7.1",
+    "vue-dark-mode-switch": "^1.0.6",
+    "vuepress": "^1.7.1"
+  },
+  "dependencies": {
+    "vue-click-outside": "^1.1.0"
+  }
+}
