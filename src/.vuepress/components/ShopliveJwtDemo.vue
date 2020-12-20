@@ -74,7 +74,7 @@ var demoAccessKey = 'uv9CGthPzlvsInZerCw0';
 var demoSecretKey = 'ckFXaWtRWENtSTA2QnpGVmxWNlBySWF4cUk1Q1pxbHU=';
 
 export default {
-  name: 'shopliveDemo',
+  name: 'shopliveJwtDemo',
   mounted() {
     (function (s,h,o,p,l,i,v,e) {s["ShoplivePlayer"]=l;(s[l]=s[l]||function(){
     (s[l].q=s[l].q||[]).push(arguments);}),(i=h.createElement(o)),

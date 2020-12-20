@@ -115,6 +115,13 @@ module.exports = {
               children: ["", "script", "authorization", "jwt"],
             },
           ],
+          "/demo/": [
+            {
+              title: "데모",
+              collapsable: false,
+              children: ["", "guest", "simple-auth", "jwt-auth"],
+            },
+          ],
         },
       },
       "/en/": {
@@ -139,6 +146,13 @@ module.exports = {
               title: "Guide",
               collapsable: false,
               children: ["", "script", "authorization", "jwt"],
+            },
+          ],
+          "/demo/": [
+            {
+              title: "데모",
+              collapsable: false,
+              children: ["", "guest", "simple-auth", "jwt-auth"],
             },
           ],
         },
