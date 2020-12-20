@@ -18,14 +18,12 @@ JWT payload는 다음과 같습니다.
 
 | 데이터     | 설명                          | 샘플                 |
 | ---------- | ----------------------------- | -------------------- |
-| accessKey  | 발급한 접근키                 | uv9CGthPzlvsInZer123 |
+| accessKey  | 발급한 접근키                 | uv9CGthPzlvsInZerCw0 |
 | expiration | 만료시간 (timestamp)          | 1516239022           |
 | userId     | 사용자 아이디                 | shoplive             |
 | name       | 사용자 이름 (채팅창에서 사용) | 샵라이브             |
 
 ### 인증 토큰 생성기
-
-발급받은 secretKey는 base64 인코딩 되어 있습니다.
 
 <AuthorizationGenerator />
 

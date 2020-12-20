@@ -26,7 +26,7 @@ mplayer("run", "{{ id }}");
 
 | 인자값        | 설명                                                    | 샘플                 |
 | ------------- | ------------------------------------------------------- | -------------------- |
-| access_key    | 발급한 접근키                                           | uv9CGthPzlvsInZer123 |
+| access_key    | 발급한 접근키                                           | uv9CGthPzlvsInZerCw0 |
 | campaign_key  | 방송 캠페인 키<br />빈값인 경우 최근 생성한 캠페인 선택 | PzlvsInZ             |
 | authorization | 사용자 인증 정보<br />게스트의 경우엔 빈값 입력         | 인증방식에 따라 다름<br />[인증](./authorization)페이지를 참고해주세요. |
 
