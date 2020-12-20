@@ -15,6 +15,16 @@
         <div role="info">발급받은 accessKey를 입력</div>
       </div>
       <div>
+        <label for="demoCampaignKey">campaignKey</label>
+        <input
+          id="demoCampaignKey"
+          v-model="campaignKey"
+          type="text"
+          name="campaignKey"
+        />
+        <div role="info">campaignKey 입력</div>
+      </div>
+      <div>
         <label for="demoUserId">userId</label>
         <input
           id="demoUserId"
@@ -33,16 +43,6 @@
           name="name"
         />
         <div role="info">로그인 사용자 이름 입력</div>
-      </div>
-      <div>
-        <label for="demoExpiration">expiration</label>
-        <input
-          id="demoExpiration"
-          v-model="expiration"
-          type="text"
-          name="expiration"
-        />
-        <div role="info">현재시간 +12시간 timestamp 입력</div>
       </div>
       <input
         type="submit"
@@ -72,10 +72,9 @@ export default {
     return {
       errors: [],
       accessKey: demoAccessKey,
+      campaignKey: 'bf129612ef4c',
       userId: 'shoplive',
       name: '샵라이브',
-      expiration: parseInt(now.getTime() / 1000) + 60 * 60 * 12, // +1시간
-      token: this.token
     }
   },
   methods: {

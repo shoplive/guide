@@ -14,6 +14,16 @@
         />
         <div role="info">발급받은 accessKey를 입력</div>
       </div>
+      <div>
+        <label for="demoCampaignKey">campaignKey</label>
+        <input
+          id="demoCampaignKey"
+          v-model="campaignKey"
+          type="text"
+          name="campaignKey"
+        />
+        <div role="info">campaignKey 입력</div>
+      </div>
       <input
         type="submit"
         value="플레이어 생성"
@@ -41,6 +51,7 @@ export default {
     var now = new Date();
     return {
       errors: [],
+      campaignKey: 'bf129612ef4c',
       accessKey: demoAccessKey,
     }
   },

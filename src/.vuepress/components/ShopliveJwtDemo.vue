@@ -25,6 +25,16 @@
         <div role="info">발급받은 secretKey(base64)를 입력</div>
       </div>
       <div>
+        <label for="demoCampaignKey">campaignKey</label>
+        <input
+          id="demoCampaignKey"
+          v-model="campaignKey"
+          type="text"
+          name="campaignKey"
+        />
+        <div role="info">campaignKey 입력</div>
+      </div>
+      <div>
         <label for="demoUserId">userId</label>
         <input
           id="demoUserId"
@@ -87,6 +97,7 @@ export default {
       errors: [],
       accessKey: demoAccessKey,
       secretKey: demoSecretKey,
+      campaignKey: 'bf129612ef4c',
       userId: 'shoplive',
       name: '샵라이브',
       expiration: parseInt(now.getTime() / 1000) + 60 * 60 * 12, // +1시간
