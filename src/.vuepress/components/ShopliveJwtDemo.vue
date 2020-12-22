@@ -70,6 +70,11 @@
       >
     </form>
 
+    <div class="token-result sample-form" v-if="token">
+      <div class="token-key">Token</div>
+      <textarea class="token-value" rows="5" readonly>{{ token }}</textarea>
+    </div>
+
     <div id="shoplivePlayer" class="shoplive-player">
       id="shoplivePlayer"
     </div>
@@ -115,6 +120,8 @@ export default {
         .setExpirationTime(this.expiration)
         .sign(toUint8Array(this.secretKey));
 
+      this.token = jwt;
+      
       mplayer("init", this.accessKey, this.campaignKey, jwt);
       mplayer("run", "shoplivePlayer");
     }
@@ -129,4 +136,8 @@ export default {
     border 1px dashed #999
     width 480px
     max-width 100%
+  .token-key
+    font-weight bold
+  .token-value
+    font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", "Spoqa Han Sans Neo", monospace
 </style>
