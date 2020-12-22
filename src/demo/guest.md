@@ -1,4 +1,4 @@
-# 게스트 사용자
+# 게스트 (미로그인)
 
 ```js
 mplayer("init", accessKey, campaignKey, "");

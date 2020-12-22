@@ -115,7 +115,7 @@ export default {
         .setExpirationTime(this.expiration)
         .sign(toUint8Array(this.secretKey));
 
-      mplayer("init", this.accessKey, jwt, 195);
+      mplayer("init", this.accessKey, this.campaignKey, jwt);
       mplayer("run", "shoplivePlayer");
     }
   }

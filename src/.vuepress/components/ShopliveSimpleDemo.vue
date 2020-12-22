@@ -81,7 +81,7 @@ export default {
     async checkForm(e) {
       e.preventDefault();
 
-      mplayer("init", this.accessKey, '', 195);
+      mplayer("init", this.accessKey, this.campaignKey, { userId: this.userId, userName: this.name });
       mplayer("run", "shoplivePlayer");
     }
   }
