@@ -24,11 +24,6 @@ public class JwtAuthorizationGeneratorSample {
         String algorithm = "HS256";
 
         /*
-         * 발급 받은 access key
-         */
-        String accessKey = "uv9CGthPzlvsInZerCw0";
-
-        /*
          * 발급 받은 base64 인코딩된 secret key
          */
         String base64EncodedSecretKey = "ckFXaWtRWENtSTA2QnpGVmxWNlBySWF4cUk1Q1pxbHU=";
@@ -56,7 +51,6 @@ public class JwtAuthorizationGeneratorSample {
             .signWith(SignatureAlgorithm.forName(algorithm), base64EncodedSecretKey)
             .setExpiration(new Date(expiration))
             .setIssuedAt(new Date())
-            .claim("accessKey", accessKey)
             .claim("userId", userId)
             .claim("name", name);
 
@@ -71,6 +65,6 @@ public class JwtAuthorizationGeneratorSample {
 ```
 결과
 
-jwt: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDg1MjY0ODgsImlhdCI6MTYwODQ4MzI4OSwiYWNjZXNzS2V5IjoidXY5Q0d0aFB6bHZzSW5aZXJDdzAiLCJ1c2VySWQiOiJzYW1wbGVfdXNlcl9pZCIsIm5hbWUiOiJteV9uaWNrbmFtZSJ9.uBzBf_JWTYTCnaVUsQfkVYEqhavB_xtScHfoU7N7ssw
+jwt: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDg1ODE0ODAsImlhdCI6MTYwODUzODI4MCwidXNlcklkIjoic2FtcGxlX3VzZXJfaWQiLCJuYW1lIjoibXlfbmlja25hbWUifQ.vSSv2pyYVsQngwqytdVWuGxgq5pO7P-RAPM6mWXellA
 
 ```
