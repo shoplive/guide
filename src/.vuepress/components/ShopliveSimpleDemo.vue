@@ -35,7 +35,7 @@
         <div role="info">로그인 사용자 ID 입력</div>
       </div>
       <div>
-        <label for="demoName">name</label>
+        <label for="demoName">userName</label>
         <input
           id="demoName"
           v-model="name"
