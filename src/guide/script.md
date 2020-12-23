@@ -14,23 +14,52 @@
 (v=h.getElementsByTagName(o)[0]);i.async=1;i.src=p;v.parentNode.insertBefore(i,v);
 })(window,document,"script","https://static.shoplive.cloud/live.js","mplayer");
 
-mplayer("init", "{{ access_key }}", "{{ campaign_key }}", "{{ user authorization }}");
+mplayer("init", "{{ access_key }}", "{{ campaign_key }}", "{{ user authorization }}", {{ options }});
 mplayer("run", "{{ id }}");
 ```
 
-**init 함수**
+### init 함수
 
 샵라이브 클라이언트를 초기화합니다.
 
-`mplayer("init", access_key, campaign_key, user_authorization)`
+`mplayer("init", access_key, campaign_key, user_authorization, options)`
 
-| 인자값        | 설명                                                    | 샘플                 |
-| ------------- | ------------------------------------------------------- | -------------------- |
-| access_key    | 발급한 접근키                                           | uv9CGthPzlvsInZerCw0 |
-| campaign_key  | 방송 캠페인 키<br />빈값인 경우 최근 생성한 캠페인 선택 | PzlvsInZ             |
+| 인자값        | 설명                                                    | 샘플                                                                    |
+| ------------- | ------------------------------------------------------- | ----------------------------------------------------------------------- |
+| access_key    | 발급한 접근키                                           | uv9CGthPzlvsInZerCw0                                                    |
+| campaign_key  | 방송 캠페인 키<br />빈값인 경우 최근 생성한 캠페인 선택 | PzlvsInZ                                                                |
 | authorization | 사용자 인증 정보<br />게스트의 경우엔 빈값 입력         | 인증방식에 따라 다름<br />[인증](./authorization)페이지를 참고해주세요. |
+| options       | 추가 옵션                                               | { messageCallback }                                                     |
 
-**run 함수**
+**options**
+
+| 인자값          | 설명                                                                                                         |
+| --------------- | ------------------------------------------------------------------------------------------------------------ |
+| messageCallback | `REQUEST_LOGIN` - 로그인이 필요할 때<br />`AUTH_TOKEN_ERROR` - 인증을 실패했을 때<br />그외 커스텀 액션 추가 |
+
+```js
+var messageCallback = function(action, payload) {
+  switch (action) {
+    case "REQUEST_LOGIN": // 로그인이 필요할 때 호출
+      alert("로그인이 필요합니다");
+      break;
+    case "AUTH_TOKEN_ERROR": // 인증을 실패했을 때 호출
+      console.log(payload.error);
+      break;
+    case "DOWNLOAD_COUPON": // custom action
+      alert(payload.code + "쿠폰 다운로드 성공!");
+      break;
+  }
+};
+
+var options = {
+  messageCallback: messageCallback,
+};
+
+mplayer("init", access_key, campaign_key, user_authorization, options);
+```
+
+### run 함수
 
 샵라이브 클라이언트를 시작합니다.
 

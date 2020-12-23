@@ -88,6 +88,17 @@ import { toUint8Array } from 'js-base64';
 var demoAccessKey = 'uv9CGthPzlvsInZerCw0';
 var demoSecretKey = 'ckFXaWtRWENtSTA2QnpGVmxWNlBySWF4cUk1Q1pxbHU=';
 
+var messageCallback = function(action, payload) {
+  switch (action) {
+    case "REQUEST_LOGIN": // 로그인이 필요할 때 호출
+      alert("로그인이 필요합니다");
+      break;
+  }
+};
+var options = {
+  messageCallback: messageCallback,
+};
+
 export default {
   name: 'shopliveJwtDemo',
   mounted() {
@@ -122,7 +133,7 @@ export default {
 
       this.token = jwt;
       
-      mplayer("init", this.accessKey, this.campaignKey, jwt);
+      mplayer("init", this.accessKey, this.campaignKey, jwt, options);
       mplayer("run", "shoplivePlayer");
     }
   }

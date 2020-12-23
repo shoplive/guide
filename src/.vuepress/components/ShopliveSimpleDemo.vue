@@ -59,6 +59,17 @@
 <script>
 var demoAccessKey = 'uv9CGthPzlvsInZerCw0';
 
+var messageCallback = function(action, payload) {
+  switch (action) {
+    case "REQUEST_LOGIN": // 로그인이 필요할 때 호출
+      alert("로그인이 필요합니다");
+      break;
+  }
+};
+var options = {
+  messageCallback: messageCallback,
+};
+
 export default {
   name: 'shopliveSimpleDemo',
   mounted() {
@@ -81,7 +92,7 @@ export default {
     async checkForm(e) {
       e.preventDefault();
 
-      mplayer("init", this.accessKey, this.campaignKey, { userId: this.userId, userName: this.name });
+      mplayer("init", this.accessKey, this.campaignKey, { userId: this.userId, userName: this.name }, options);
       mplayer("run", "shoplivePlayer");
     }
   }
