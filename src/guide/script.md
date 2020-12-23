@@ -33,9 +33,11 @@ mplayer("run", "{{ id }}");
 
 **options**
 
-| 인자값          | 설명                                                                                                         |
-| --------------- | ------------------------------------------------------------------------------------------------------------ |
-| messageCallback | `REQUEST_LOGIN` - 로그인이 필요할 때<br />`AUTH_TOKEN_ERROR` - 인증을 실패했을 때<br />그외 커스텀 액션 추가 |
+| 인자값          | 설명                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------ |
+| messageCallback | `REQUEST_LOGIN` - 로그인이 필요할 때<br />`ERROR` - 에러 발생시<br />그외 커스텀 액션 추가 |
+
+에러 발생시 에러코드는 [여기](./error-code)에서 확인하세요.
 
 ```js
 var messageCallback = function(action, payload) {
@@ -43,8 +45,9 @@ var messageCallback = function(action, payload) {
     case "REQUEST_LOGIN": // 로그인이 필요할 때 호출
       alert("로그인이 필요합니다");
       break;
-    case "AUTH_TOKEN_ERROR": // 인증을 실패했을 때 호출
-      console.log(payload.error);
+    case "ERROR": // 에러처리
+      console.log(payload.code); // 에러코드
+      console.log(payload.msg); // 에러메시지
       break;
     case "DOWNLOAD_COUPON": // custom action
       alert(payload.code + "쿠폰 다운로드 성공!");

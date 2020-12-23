@@ -112,7 +112,7 @@ module.exports = {
             {
               title: "개발가이드",
               collapsable: false,
-              children: ["", "script", "authorization", "jwt"],
+              children: ["", "script", "authorization", "jwt", "error-code"],
             },
           ],
           "/demo/": [
