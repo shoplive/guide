@@ -119,7 +119,7 @@ module.exports = {
             {
               title: "데모",
               collapsable: false,
-              children: ["", "guest", "simple-auth", "jwt-auth"],
+              children: ["", "guest", "simple-auth", "jwt-auth", "controls"],
             },
           ],
         },
