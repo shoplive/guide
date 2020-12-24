@@ -68,3 +68,20 @@ mplayer("init", access_key, campaign_key, user_authorization, options);
 | 인자값 | 설명                         | 샘플           |
 | ------ | ---------------------------- | -------------- |
 | id     | 플레이어를 렌더링할 DOM의 ID | shoplivePlayer |
+
+```js
+mplayer("run", "{{ id }}");
+```
+
+
+### send 함수
+
+샵라이브 클라이언트에 명령을 전송할 때 사용합니다.
+
+`mplayer("send", action, payload)`
+
+자세한 기능은 [데모페이지](../demo/controls)에서 확인하세요.
+
+```js
+mplayer("send", "hideControls");
+```
