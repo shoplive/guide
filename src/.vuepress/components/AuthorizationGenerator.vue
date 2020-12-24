@@ -5,16 +5,6 @@
       class="sample-form"
     >
       <div>
-        <label for="agAccessKey">accessKey</label>
-        <input
-          id="agAccessKey"
-          v-model="accessKey"
-          type="text"
-          name="accessKey"
-        />
-        <div role="info">발급받은 accessKey를 입력</div>
-      </div>
-      <div>
         <label for="agSecretKey">secretKey</label>
         <input
           id="agSecretKey"
@@ -80,7 +70,6 @@ export default {
     var now = new Date();
     return {
       errors: [],
-      accessKey: demoAccessKey,
       secretKey: demoSecretKey,
       userId: 'shoplive',
       name: '샵라이브',
@@ -92,7 +81,7 @@ export default {
     async checkForm(e) {
       e.preventDefault();
 
-      var payload = { accessKey: this.accessKey, userId: this.userId, name: this.name };
+      var payload = { userId: this.userId, name: this.name };
       const jwt = await new SignJWT(payload)
         .setProtectedHeader({ alg: 'HS256' })
         .setIssuedAt()

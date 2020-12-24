@@ -31,7 +31,7 @@ mplayer(
   "init",
   "uv9CGthPzlvsInZerCw0",
   "bf129612ef4c",
-  "eyJhbGciOiJIUzI1NiJ9.eyJhY2Nlc3NLZXkiOiJ1djlDR3RoUHpsdnNJblplckN3MCIsInVzZXJJZCI6InNob3BsaXZlIiwibmFtZSI6IuyDteudvOydtOu4jCIsImlhdCI6MTYwODQ4NDMyNywiZXhwIjoxNjA4NTI3NDI3fQ.ia0fG5E45Ds1jK9P--km6L-gaw4IBZ--Sh5_c06ZpCs"
+  "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJzaG9wbGl2ZSIsIm5hbWUiOiLsg7XrnbzsnbTruIwiLCJpYXQiOjE2MDg1NTE2MTksImV4cCI6MTYwODU5NDgxNX0.-VLYorRmIyDAHkOxMt7GZQeArNhTzBqAGvGEs3AICFY"
 );
 mplayer("run", "shoplivePlayer");
 ```
@@ -44,7 +44,6 @@ JWT payload는 다음과 같습니다.
 
 | 데이터     | 설명                          | 샘플                 |
 | ---------- | ----------------------------- | -------------------- |
-| accessKey  | 발급한 접근키                 | uv9CGthPzlvsInZerCw0 |
 | expiration | 만료시간 (timestamp)          | 1516239022           |
 | userId     | 사용자 아이디                 | shoplive             |
 | name       | 사용자 이름 (채팅창에서 사용) | 샵라이브             |
