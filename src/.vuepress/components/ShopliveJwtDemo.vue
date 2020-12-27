@@ -128,7 +128,7 @@ export default {
       const jwt = await new SignJWT(payload)
         .setProtectedHeader({ alg: 'HS256' })
         .setIssuedAt()
-        .setExpirationTime(this.expiration)
+        .setExpirationTime(parseInt(this.expiration))
         .sign(toUint8Array(this.secretKey));
 
       this.token = jwt;
