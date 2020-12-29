@@ -35,6 +35,26 @@
         <div role="info">로그인 사용자 이름 입력</div>
       </div>
       <div>
+        <label for="agGender">성별</label>
+        <input
+          id="agGender"
+          v-model="gender"
+          type="text"
+          name="gender"
+        />
+        <div role="info">성별 입력 (빈칸 또는 m/f)</div>
+      </div>
+      <div>
+        <label for="agAge">age</label>
+        <input
+          id="agAge"
+          v-model="age"
+          type="text"
+          name="name"
+        />
+        <div role="info">나이 입력 (빈칸 또는 10, 20, 22, 23, ...)</div>
+      </div>
+      <div>
         <label for="agExpiration">expiration</label>
         <input
           id="agExpiration"
@@ -73,6 +93,8 @@ export default {
       secretKey: demoSecretKey,
       userId: 'shoplive',
       name: '샵라이브',
+      gender: '',
+      age: '',
       expiration: parseInt(now.getTime() / 1000) + 60 * 60 * 12, // +1시간
       token: this.token
     }
@@ -81,7 +103,7 @@ export default {
     async checkForm(e) {
       e.preventDefault();
 
-      var payload = { userId: this.userId, name: this.name };
+      var payload = { userId: this.userId, name: this.name, gender: this.gender, age: this.age };
       const jwt = await new SignJWT(payload)
         .setProtectedHeader({ alg: 'HS256' })
         .setIssuedAt()
