@@ -24,20 +24,27 @@ mplayer("run", "{{ id }}");
 
 `mplayer("init", access_key, campaign_key, user_authorization, options)`
 
-| 인자값        | 설명                                                    | 샘플                                                                    |
-| ------------- | ------------------------------------------------------- | ----------------------------------------------------------------------- |
-| access_key    | 발급한 접근키                                           | uv9CGthPzlvsInZerCw0                                                    |
-| campaign_key  | 방송 캠페인 키<br />빈값인 경우 가장 가까운 날짜의 캠페인 자동 선택 | PzlvsInZ             |
-| authorization | 사용자 인증 정보<br />게스트의 경우엔 빈값 입력         | 인증방식에 따라 다름<br />[인증](./authorization)페이지를 참고해주세요. |
-| options       | 추가 옵션                                               | { messageCallback }                                                     |
+| 인자값        | 설명                                                                | 샘플                                                                    |
+| ------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| access_key    | 발급한 접근키                                                       | uv9CGthPzlvsInZerCw0                                                    |
+| campaign_key  | 방송 캠페인 키<br />빈값인 경우 가장 가까운 날짜의 캠페인 자동 선택 | PzlvsInZ                                                                |
+| authorization | 사용자 인증 정보<br />게스트의 경우엔 빈값 입력                     | 인증방식에 따라 다름<br />[인증](./authorization)페이지를 참고해주세요. |
+| options       | 추가 옵션                                                           | { messageCallback }                                                     |
 
 **options**
 
-| 인자값          | 설명                                                                                       |
-| --------------- | ------------------------------------------------------------------------------------------ |
-| messageCallback | `REQUEST_LOGIN` - 로그인이 필요할 때<br />`ERROR` - 에러 발생시<br />그외 커스텀 액션 추가 |
+| 인자값          | 설명                                                       |
+| --------------- | ---------------------------------------------------------- |
+| messageCallback | 미리 정해진 `action`이 있고 별도 커스텀을 정의할 수 있음   |
+| isFullScreen    | `true` - 가득차게, `false` - 비율 유지, (기본) - 자동 선택 |
 
-에러 발생시 에러코드는 [여기](./error-code)에서 확인하세요.
+**messageCallback**
+
+| action            | payload                         | 설명                                                           |
+| ----------------- | ------------------------------- | -------------------------------------------------------------- |
+| `REQUEST_LOGIN`   | 없음                            | 로그인이 필요할 때<br />(로그인만 채팅 허용일 때, 채팅창 선택) |
+| `ERROR`           | code(에러코드), msg(에러메시지) | 에러 발생시<br />에러코드는 [여기](./error-code)서 확인하세요. |
+| `DOWNLOAD_COUPON` | coupon(쿠폰코드)                | 쿠폰 다운로드                                                  |
 
 ```js
 var messageCallback = function(action, payload) {
@@ -49,8 +56,8 @@ var messageCallback = function(action, payload) {
       console.log(payload.code); // 에러코드
       console.log(payload.msg); // 에러메시지
       break;
-    case "DOWNLOAD_COUPON": // custom action
-      alert(payload.code + "쿠폰 다운로드 성공!");
+    case "DOWNLOAD_COUPON": // 쿠본 다운로드
+      alert(payload.coupon + "쿠폰 다운로드 성공!");
       break;
   }
 };
@@ -75,7 +82,6 @@ mplayer("init", access_key, campaign_key, user_authorization, options);
 ```js
 mplayer("run", "{{ id }}");
 ```
-
 
 ### send 함수
 
