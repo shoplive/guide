@@ -5,7 +5,7 @@ module.exports = {
       title: "Shoplive Guide",
       description: "Shoplive 연동 가이드",
     },
-    "/en": {
+    "/en/": {
       lang: "en-US",
       title: "Shoplive Guide",
       description: "Shoplive Guide",
@@ -96,7 +96,7 @@ module.exports = {
         selectText: "Languages",
         ariaLabel: "Select language",
         editLinkText: "Edit this page on GitHub",
-        lastUpdated: "Last Updated",
+        // lastUpdated: "Last Updated",
         nav: [
           {
             text: "개발가이드",
@@ -129,30 +129,30 @@ module.exports = {
         selectText: "Languages",
         ariaLabel: "Select language",
         editLinkText: "Edit this page on GitHub",
-        lastUpdated: "Last Updated",
+        // lastUpdated: "Last Updated",
         nav: [
           {
             text: "Guide",
-            link: "/guide/",
+            link: "/en/guide/",
           },
           {
             text: "Demo",
-            link: "/demo/",
+            link: "/en/demo/",
           },
         ],
         sidebar: {
-          "/guide/": [
+          "/en/guide/": [
             {
               title: "Guide",
               collapsable: false,
-              children: ["", "script", "authorization", "jwt"],
+              children: ["", "script", "authorization", "jwt", "error-code"],
             },
           ],
-          "/demo/": [
+          "/en/demo/": [
             {
-              title: "데모",
+              title: "Demo",
               collapsable: false,
-              children: ["", "guest", "simple-auth", "jwt-auth"],
+              children: ["", "guest", "simple-auth", "jwt-auth", "controls"],
             },
           ],
         },
