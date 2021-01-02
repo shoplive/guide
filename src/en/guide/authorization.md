@@ -1,10 +1,10 @@
-# Authentication
+# Authorization
 
-SHOPLIVE supports 2 authentication methods - ID/Password authentication and JWT authentication.
+SHOPLIVE supports 2 authorization methods - ID/Password auth and JWT auth.
 
 ## ID/Password Authentication
 
-This method shows how you use userID and userName of logged-in user when you call the script. Use this method when you are not able to use JWT or just want simple authentication.
+This method shows how you use userID and userName of logged-in user when you call the script. Use this method when you are not able to use JWT or just want simple authorization.
 
 ```js
 mplayer("init", accessKey, campaignKey, { userId: userId, userName: userName });
