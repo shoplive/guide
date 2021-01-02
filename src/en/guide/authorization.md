@@ -1,10 +1,10 @@
-# 인증
+# Authorization
 
-인증은 일반 인증과 JWT 인증 방식이 있습니다.
+SHOPLIVE supports two authorization methods - Simple Auth(ID/Password) and JWT auth.
 
-## 일반 인증
+## ID/Password Auth
 
-스크립트 호출시 로그인한 사용자의 아이디와 이름을 입력하는 방식입니다. 사용자 인증을 이용하여 서버에서 JWT를 만들 수 없거나 간편한 방식을 원할 경우 이용합니다.
+This method uses simply userID and userName when initializing SHOPLIVE player. Use this method if you can't generate JWT token in the server-side or if you just want simple authorization.
 
 ```js
 mplayer("init", accessKey, campaignKey, { userId: userId, userName: userName });
@@ -12,15 +12,15 @@ mplayer("run", "shoplivePlayer");
 
 // example
 mplayer("init", "uv9CGthPzlvsInZerCw0", "bf129612ef4c", {
-  userId: "shoplive",
-  userName: "샵라이브",
+  userId: "user_id",
+  userName: "user_name",
 });
 mplayer("run", "shoplivePlayer");
 ```
 
-## JWT 인증
+## JWT Auth
 
-비밀키를 이용하여 서버에서 JWT를 만들어 인증하는 방식입니다. 대부분의 상황에서 권장하는 방식입니다.
+This method uses JWT token which is generated in the server-side using secret key. This method is recommended in most cases.  
 
 ```js
 mplayer("init", accessKey, campaignKey, jwt);
@@ -36,24 +36,24 @@ mplayer(
 mplayer("run", "shoplivePlayer");
 ```
 
-JWT에 대한 내용은 [JWT](./jwt)페이지를 참고하세요.
+Please refer to [JWT](./jwt) for more details.
 
-### 인증 토큰 생성 가이드
+### How to generate an JWT Auth Token
 
-JWT payload는 다음과 같습니다.
+Please see the details of JWT payload below.
 
-| 데이터     | 설명                               | 필수여부       | 샘플                                                                     |
+| Data     | Description                               | Compulsory       | Sample                                                                     |
 | ---------- | ---------------------------------- | -------------- | ------------------------------------------------------------------------ |
-| expiration | 만료시간 (timestamp)               | 필수(JWT 일때) | 1516239022                                                               |
-| userId     | 사용자 아이디                      | 필수           | shoplive                                                                 |
-| name       | 사용자 이름<br />(채팅창에서 사용) | 필수           | 샵라이브                                                                 |
-| gender     | 사용자 성별                        | 필수아님       | `빈값`(미지정), `m`(남), `f`(여)                                         |
-| age        | 사용자 나이                        | 필수아님       | `빈값` 또는 `0`(미지정), `10`, `20`, `30`, .. 또는 `23`, `24`, `25` 가능 |
+| expiration | Expiration timestamp              | Compulsory (in case of JWT) | 1516239022                                                               |
+| userId     | User ID                      | Compulsory           | user_id                                                                 |
+| name       | User Name <br />(will be shown in the chatting UI) | Compulsory           | user_name                                                                 |
+| gender     | Gender of User                        | Optional       | ``(when not assigned), `m`(male), `f`(female)                                         |
+| age        | Age of User                        | Optional       | `` or `0`(when not assigned), `10`, `20`, `30` or exact age like `23`, `24`, `25` |
 
-### 인증 토큰 생성기
+### Auth Token Generator
 
 <AuthorizationGenerator />
 
-### 인증 토큰 검증기
+### Auth Token validator
 
 <AuthorizationValidator />

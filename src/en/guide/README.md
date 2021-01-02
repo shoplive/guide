@@ -1,24 +1,23 @@
-# 연동방식
+# Integrations
 
-## 웹기반 플레이어 연동
+## Integrating web client
 
-샵라이브는 자바스크립트를 이용하여 라이브 플레이어를 페이지에 삽입합니다.
+Javascript based web client of SHOPLIVE can be easily embedded into your website.
 
-플레이어가 삽입될 영역에 `id`를 지정하고 정해진 스크립트를 호출하면 연동이 마무리됩니다.
+Set `ID` in the layer where the Live Commerce player will be located and add the SHOPLIVE JS code into the layer.
 
 ![연동 흐름](./imgs/index/intro.png)
 
-자세한 연동은 [스크립트 가이드](./script)를 참고하세요.
+For more details, please refer to [Script Guide](./script).
 
-## 사용자 정보 연동
+## Authorization
 
-스크립트 초기화 시 사용자 아이디, 사용자 이름을 전달합니다.
+When initializing the player script, you need to set userID and userName.
+Two authorization methods (Simple ID/Password Auth and JWT Auth) are available.
 
-별도 인증토큰이 필요하지 않은 일반 인증과 JWT를 이용한 강한 인증 방식을 사용할 수 있습니다.
-
-| 인증방식  | 연동 데이터                               | 특징                                         |
+| Authorization  | Integration Data                               | Description                                         |
 | --------- | ----------------------------------------- | -------------------------------------------- |
-| 일반 인증 | { user_id: 아이디, user_name: 이름, ... } | 간편한 연동방식                              |
-| JWT 인증  | xxxx.yyyy.zzzz (JSON Web Token)           | 서버에서 주어진 비밀키로 JWT를 생성하는 방식 |
+| Simple Auth | { userID, userName, ... } | Simple way to integrate                              |
+| JWT Auth  | xxxx.yyyy.zzzz (JSON Web Token)           | Generating JWT token with secret key in the server-side |
 
-인증과 관련된 내용은 [인증](./authorization)을 참고하세요.
+For more details about Authorization, please refer to [Authorization](./authorization).

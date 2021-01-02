@@ -1,5 +1,5 @@
-# 데모
+# Demo
 
-- [게스트(로그인 안한) 사용자 데모](./guest)
-- [일반 인증 데모](./simple-auth)
-- [JWT 인증 데모](./jwt-auth)
+- [Guest (not logged in) User Demo](./guest)
+- [Simple Auth Demo](./simple-auth)
+- [JWT Auth Demo](./jwt-auth)

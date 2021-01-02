@@ -1,12 +1,12 @@
-# 스크립트 가이드
+# Script Guide
 
 ![연동 흐름](./imgs/index/intro.png)
 
-샵라이브 플레이어가 삽입될 레이어에 `id`를 지정하고 스크립트를 호출합니다.
+Set `id` in the layer where SHOPLIVE player will be located and add SHOPLIVE JS code inside the layer.
 
-## 스크립트
+## Script
 
-플레이어를 렌더링 할 DOM(div,...)을 만들고 id를 지정한 다음, 다음과 같은 스크립트를 `</body>` 태그 바로 위에 추가합니다.
+After creating a DOM(div,...) to render the SHOPLIVE player and also setting id of the layer, please add the following scripts just before `</body>` tag.
 
 ```js
 (function (s,h,o,p,l,i,v,e) {s["ShoplivePlayer"]=l;(s[l]=s[l]||function(){
@@ -18,46 +18,46 @@ mplayer("init", "{{ access_key }}", "{{ campaign_key }}", "{{ user authorization
 mplayer("run", "{{ id }}");
 ```
 
-### init 함수
+### init funtion
 
-샵라이브 클라이언트를 초기화합니다.
+Initialize SHOPLIVE player
 
 `mplayer("init", access_key, campaign_key, user_authorization, options)`
 
-| 인자값        | 설명                                                                | 샘플                                                                    |
+| Argument        | Description                                                                | Sample                                                                    |
 | ------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| access_key    | 발급한 접근키                                                       | uv9CGthPzlvsInZerCw0                                                    |
-| campaign_key  | 방송 캠페인 키<br />빈값인 경우 가장 가까운 날짜의 캠페인 자동 선택 | PzlvsInZ                                                                |
-| authorization | 사용자 인증 정보<br />게스트의 경우엔 빈값 입력                     | 인증방식에 따라 다름<br />[인증](./authorization)페이지를 참고해주세요. |
-| options       | 추가 옵션                                                           | { messageCallback }                                                     |
+| access_key    | Unique key issued by SHOPLIVE                                                       | uv9CGthPzlvsInZerCw0                                                    |
+| campaign_key  | Unique key for each campaign. (This key is generated when creating a campaign in the SHOPLIVE admin tool)<br />If null, Player will automatically use the last created campaign in the list. | PzlvsInZ                                                                |
+| authorization | User authorization info. <br/> Add '' in case of guest user                   | Depending on authorization method.<br />Please refer to [Authorization](./authorization) |
+| options       |                                                            | { messageCallback }                                                     |
 
 **options**
 
-| 인자값          | 설명                                                       |
+| Argument          | Description                                                       |
 | --------------- | ---------------------------------------------------------- |
-| messageCallback | 미리 정해진 `action`이 있고 별도 커스텀을 정의할 수 있음   |
-| isFullScreen    | `true` - 가득차게, `false` - 비율 유지, (기본) - 자동 선택 |
+| messageCallback | Use pre-defined action or custom action can be defined  |
+| isFullScreen    | `true` - Full Screen, `false` - Keep Ratio, (default) - Automatic |
 
 **messageCallback**
 
-| action            | payload                         | 설명                                                           |
+| action name          | payload                         | Description                                                           |
 | ----------------- | ------------------------------- | -------------------------------------------------------------- |
-| `REQUEST_LOGIN`   | 없음                            | 로그인이 필요할 때<br />(로그인만 채팅 허용일 때, 채팅창 선택) |
-| `ERROR`           | code(에러코드), msg(에러메시지) | 에러 발생시<br />에러코드는 [여기](./error-code)서 확인하세요. |
-| `DOWNLOAD_COUPON` | coupon(쿠폰코드)                | 쿠폰 다운로드                                                  |
+| `REQUEST_LOGIN`   | N/A                            | Use when login is required. <br />(e.g., Only logged in user can chat) |
+| `ERROR`           | code(Error Code), msg(Error Message) | Use when error occurs.<br /> Please see the details of [error code](./error-code) |
+| `DOWNLOAD_COUPON` | coupon(coupon code)                | Coupon Download                                                  |
 
 ```js
 var messageCallback = function(action, payload) {
   switch (action) {
-    case "REQUEST_LOGIN": // 로그인이 필요할 때 호출
-      alert("로그인이 필요합니다");
+    case "REQUEST_LOGIN": // When login is required
+      alert("Login is required");
       break;
-    case "ERROR": // 에러처리
-      console.log(payload.code); // 에러코드
-      console.log(payload.msg); // 에러메시지
+    case "ERROR": // To handle error
+      console.log(payload.code); // error code
+      console.log(payload.msg); // error message
       break;
-    case "DOWNLOAD_COUPON": // 쿠본 다운로드
-      alert(payload.coupon + "쿠폰 다운로드 성공!");
+    case "DOWNLOAD_COUPON": // download coupon
+      alert(payload.coupon + "Coupon has been downloaded!");
       break;
   }
 };
@@ -69,27 +69,27 @@ var options = {
 mplayer("init", access_key, campaign_key, user_authorization, options);
 ```
 
-### run 함수
+### run function
 
-샵라이브 클라이언트를 시작합니다.
+Run SHOPLIVE player
 
 `mplayer("run", id)`
 
-| 인자값 | 설명                         | 샘플           |
+| Argument | Description                         | Sample           |
 | ------ | ---------------------------- | -------------- |
-| id     | 플레이어를 렌더링할 DOM의 ID | shoplivePlayer |
+| id     | ID of the DOM that renders SHOPLIVE player | shoplivePlayer |
 
 ```js
 mplayer("run", "{{ id }}");
 ```
 
-### send 함수
+### send function
 
-샵라이브 클라이언트에 명령을 전송할 때 사용합니다.
+To send a command to the SHOPLIVE player
 
 `mplayer("send", action, payload)`
 
-자세한 기능은 [데모페이지](../demo/controls)에서 확인하세요.
+Please find more details in the [Demo](../demo/controls).
 
 ```js
 mplayer("send", "hideControls");
