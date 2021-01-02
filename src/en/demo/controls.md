@@ -1,18 +1,18 @@
-# 외부 연동
+# External Integration
 
 ```js
 mplayer("send", action, payload);
 
-// 컨트롤 감추기
+// Hide Controls
 mplayer("send", "hideControls");
-// 컨트롤 보이기
+// Show Controls
 mplayer("send", "showControls");
 ```
 
-| 기능          | action       | payload |
+| Function          | action       | payload |
 | ------------- | ------------ | ------- |
-| 컨트롤 감추기 | hideControls | 없음    |
-| 컨트롤 보이기 | showControls | 없음    |
+| Hide Controls | hideControls | N/A    |
+| Show Controls | showControls | N/A   |
 
 ---
 

@@ -1,12 +1,12 @@
-# 에러코드
+# Error code
 
-| 코드 | 설명        | 에러 메시지 | 가이드 |
+| Code | Description        | Error Message | How to handle |
 | ---- | ----------- | ----------- | ------ |
-| 0    | 성공        |             |        |
-| -1   | 유지보수    | 점검중입니다. |      |
-| -102 | 인증 실패   | 로그인이 필요합니다. |
-| -200 | Invalid access key | 발급받은 access key를 확인해 주세요. |
-| -201 | Expired access key | access key가 만료되었습니다. |
-| -412 | Expired session | | 사용자 jwt token이 만료된 경우입니다. |
-| -500 | 서버 에러   |             | 샵라이브 서버 오류. |
-| -510 | Invalid argument |        | 파라미터 오류. |
+| 0    | success        |             |        |
+| -1   | maintenance    | SHOPLIVE is down for maintenance  |      |
+| -102 | Auth Failure   | Needs to login |
+| -200 | Invalid Access Key | Please check the access key |
+| -201 | Expired Access Key | Access key has been expired |
+| -412 | Expired Session | | JWT token for an user has been expired |
+| -500 | Server Error   |             | SHOPLIVE server error |
+| -510 | Invalid Argument |        | Invalide argument |

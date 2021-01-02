@@ -1,4 +1,4 @@
-# JWT 인증
+# JWT Auth
 
 ```js
 (function (s,h,o,p,l,i,v,e) {s["ShoplivePlayer"]=l;(s[l]=s[l]||function(){
@@ -8,8 +8,8 @@
 
 var messageCallback = function(action, payload) {
   switch (action) {
-    case "REQUEST_LOGIN": // 로그인이 필요할 때 호출
-      alert("로그인이 필요합니다");
+    case "REQUEST_LOGIN": // When login is required
+      alert("Login is required");
       break;
   }
 };
