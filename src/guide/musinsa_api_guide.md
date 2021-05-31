@@ -70,7 +70,7 @@ String authorization = builder.compact();
 
 ### Example (Normal)
 ```sh
-curl --header "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjI0NjQ0ODgsImFjY2Vzc0tleSI6Ijd4eFBsYjh5T2habmNocXVNUUhPIn0.WssRoWuimN25R3bc1ldOOq5txyhUy17_2mhKwCo_hyx" "https://api.shoplive.cloud/customer/v1/6mnefY1z9lK0vZlsduRp/event/d6541a16ba9e1"
+curl --header "Authorization: ..." "https://api.shoplive.cloud/customer/v1/6mnefY1z9lK0vZlsduRp/event/d6541a16ba9e1"
 ```
 
 ```json
@@ -159,7 +159,7 @@ curl --header "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjI0NjQ0ODgsImFjY
 ```
 ### Example (Invalid customer access key)
 ```sh
-curl --header "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjI0NjQ0ODgsImFjY2Vzc0tleSI6Ijd4eFBsYjh5T2habmNocXVNUUhPIn0.WssRoWuimN25R3bc1ldOOq5txyhUy17_2mhKwCo_hyx" "https://api.shoplive.cloud/customer/v1/6mnefY1z9lK0vZlsduRp1/event/d6541a16ba9e"
+curl --header "Authorization: ..." "https://api.shoplive.cloud/customer/v1/6mnefY1z9lK0vZlsduRp1/event/d6541a16ba9e"
 ```
 
 ```json
@@ -167,7 +167,7 @@ curl --header "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjI0NjQ0ODgsImFjY
 ```
 ### Example (Invalid campaign key)
 ```sh
-curl --header "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjI0NjQ0ODgsImFjY2Vzc0tleSI6Ijd4eFBsYjh5T2habmNocXVNUUhPIn0.WssRoWuimN25R3bc1ldOOq5txyhUy17_2mhKwCo_hyx" "https://api.shoplive.cloud/customer/v1/6mnefY1z9lK0vZlsduRp/event/d6541a16ba9e1"
+curl --header "Authorization: ..." "https://api.shoplive.cloud/customer/v1/6mnefY1z9lK0vZlsduRp/event/d6541a16ba9e1"
 ```
 
 ```json
