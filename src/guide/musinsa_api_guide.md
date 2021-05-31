@@ -70,18 +70,18 @@ String authorization = builder.compact();
 
 ### Example (Normal)
 ```sh
-curl "https://api.shoplive.cloud/customer/v1/a1AW6QRCXeoZ9MEWRdDQ/event/88719a1d56d7"
+curl --header "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjI0NjQ0ODgsImFjY2Vzc0tleSI6Ijd4eFBsYjh5T2habmNocXVNUUhPIn0.WssRoWuimN25R3bc1ldOOq5txyhUy17_2mhKwCo_hyx" "https://api.shoplive.cloud/customer/v1/6mnefY1z9lK0vZlsduRp/event/d6541a16ba9e1"
 ```
 
 ```json
 {
    "campaignId":248,
-   "campaignKey":"88719a1d56d7",
+   "campaignKey":"d6541a16ba9e1",
    "title":"Test_이벤트_2",
    "eventResults":[
       {
          "id":114,
-         "imageUrl":"https://resource-dev.shoplive.cloud/images/25749ab5-9349-45fd-b7ba-6fe3935f8b51.png",
+         "imageUrl":"https://resource.shoplive.cloud/images/25749ab5-9349-45fd-b7ba-6fe3935f8b51.png",
          "title":null,
          "description":null,
          "winners":[
@@ -119,7 +119,7 @@ curl "https://api.shoplive.cloud/customer/v1/a1AW6QRCXeoZ9MEWRdDQ/event/88719a1d
       },
       {
          "id":115,
-         "imageUrl":"https://resource-dev.shoplive.cloud/images/bd5a8857-e86f-430f-a680-e361ded54b4c.png",
+         "imageUrl":"https://resource.shoplive.cloud/images/bd5a8857-e86f-430f-a680-e361ded54b4c.png",
          "title":null,
          "description":null,
          "winners":[
@@ -128,7 +128,7 @@ curl "https://api.shoplive.cloud/customer/v1/a1AW6QRCXeoZ9MEWRdDQ/event/88719a1d
       },
       {
          "id":116,
-         "imageUrl":"https://resource-dev.shoplive.cloud/images/a796ae47-7c99-48d3-b9b1-6cb8ff67513d.png",
+         "imageUrl":"https://resource.shoplive.cloud/images/a796ae47-7c99-48d3-b9b1-6cb8ff67513d.png",
          "title":null,
          "description":null,
          "winners":[
@@ -157,18 +157,19 @@ curl "https://api.shoplive.cloud/customer/v1/a1AW6QRCXeoZ9MEWRdDQ/event/88719a1d
    ]
 }
 ```
-### Example (Invalid campaign key)
+### Example (Invalid customer access key)
 ```sh
-curl https://api.shoplive.cloud/v1/9VfTeSqTyYjNtPXMmM9Y/campaign/adsf
+curl --header "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjI0NjQ0ODgsImFjY2Vzc0tleSI6Ijd4eFBsYjh5T2habmNocXVNUUhPIn0.WssRoWuimN25R3bc1ldOOq5txyhUy17_2mhKwCo_hyx" "https://api.shoplive.cloud/customer/v1/6mnefY1z9lK0vZlsduRp1/event/d6541a16ba9e"
 ```
 
 ```json
-{
-  "campaignKey":"asdf",
-  "campaignStatus":"NOT_EXIST",
-  "liveUrl":null,
-  "scheduledAt":null,
-  "startedAt":null,
-  "endedAt":null
-}
+{"_s":-500,"_e":"Customer account is not found"}
+```
+### Example (Invalid campaign key)
+```sh
+curl --header "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjI0NjQ0ODgsImFjY2Vzc0tleSI6Ijd4eFBsYjh5T2habmNocXVNUUhPIn0.WssRoWuimN25R3bc1ldOOq5txyhUy17_2mhKwCo_hyx" "https://api.shoplive.cloud/customer/v1/6mnefY1z9lK0vZlsduRp/event/d6541a16ba9e1"
+```
+
+```json
+{"_s":-710}
 ```
